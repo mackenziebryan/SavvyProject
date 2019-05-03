@@ -1,0 +1,20 @@
+body {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    
+}
+
+a {
+    text-decoration: none;
+}
+
+.nav-bar {
+    position: sticky;
+    background: goldenrod;
+}
+
+.nav-bar-grid {
+    display: grid;
+    grid-column-start: 3;
+}
+
