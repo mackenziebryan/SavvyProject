@@ -1,20 +1,72 @@
+/*Main Style*/
 body {
-    display: grid;
-    grid-template-columns: 20% 60% 20%;
-    
+    font-family: "Cute Font", cursive;
 }
 
-a {
+.container {
+    margin: 0 auto;
+    max-width: 960px;
+    width: 80vw;
+  }
+
+  li {
+    list-style: none;
+  }
+  
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
     text-decoration: none;
-}
+  }
+/*Header Style*/
+header {
+    text-align: center;
+  }
 
-.nav-bar {
+/*Navigation Style*/
+nav {
     position: sticky;
     background: goldenrod;
-}
+    opacity: 0.75;
+    top: 20px;
+    bottom: 50px;
+    border: bisque 20px solid;
+    font-size: 18px;
+  }
+  
+  nav li {
+    text-transform: uppercase;
+    margin: 0 40px;
+  }
+  
+  #dropdown {
+    display: none;
+  }
+  
+  li:focus #dropdown,
+  li:hover #dropdown {
+    display: block;
+  }
 
-.nav-bar-grid {
-    display: grid;
-    grid-column-start: 3;
-}
+  .flex {
+    display: flex;
+  }
 
+  .flex--column {
+    flex-direction: column;
+  }
+  
+  .justify-space-around {
+    justify-content: space-around;
+  }
+
+/*Images*/
+
+/*Form*/
+
+/* Footer Style*/
+
+/*Uility Styles*/
