@@ -117,47 +117,54 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"Navigation.js":[function(require,module,exports) {
+})({"Components/Navigation.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
-var _default = "<div class=\"nav-container\">\n<nav>\n    <input type=\"checkbox\" id=\"nav-toggle\">\n    <label for=\"nav-toggle\" class=\"burger-menu\">\n      <img src=\"media/menu.png\" alt=\"\">\n    </label>\n  <div class=\"left-menu\">\n     <a href=\"#\">Shop</a>\n     <a href=\"#\">Blog</a>\n     <a href=\"#\">About</a>\n     <a href=\"#\">Contact</a>\n  </div>\n  <a href=\"\" class=\"logo\">Mackenzie</a>\n</nav>\n</div>";
-exports.default = _default;
-},{}],"Content.js":[function(require,module,exports) {
+exports.default = Navigation;
+
+function Navigation() {
+  return "<nav class=\"container\">\n<ul> <a href=\"index.html\"\n   ><i class=\"fas fa-bicycle\">\n     Home\n   </i>\n </a></ul>\n <ul><a href=\" \"><i class=\"fas fa-seedling\">Contact Me</i></a></ul>\n <li\n   ><i class=\"fas fa-leaf\">\n     Portfolio\n     <ul id=\"dropdown\">\n       <li>Web-Store</li>\n       <li></li>\n       <li>Capstone</li>\n     </ul>\n   </i>\n </li>\n</nav>;";
+}
+},{}],"Components/Content.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
-var _default = "<div class=\"content\">\n<header class=\"container\">\n  <h1>Mackenzie Bryan's Portfolio</h1>\n  <h2>Developer Showcase</h2>\n\n  <h2>\n    Languages\n    <li>HTML</li>\n    <li>CSS</li>\n    <li>JavaScript</li>\n  </h2>\n\n  <img\n    class=\"headshot\"\n    src=\"./images/headshot.jpg\"\n    alt=\"Photo\"\n    width=\"25%\"\n    height=\"25%\"\n  />\n</header>\n\n<main class=\"container\">\n  <div></div>\n  <div></div>\n  <div></div>\n  <div></div>\n</main>\n\n</div>";
 exports.default = _default;
-},{}],"Footer.js":[function(require,module,exports) {
+
+function _default(state) {
+  return "<div class=\"content\">\n<header class=\"container\">\n  <h1>Mackenzie Bryan's Portfolio ".concat(state.title, "</h1>\n  <h2>Developer Showcase</h2>\n\n  <h2>\n    Languages\n    <li>HTML</li>\n    <li>CSS</li>\n    <li>JavaScript</li>\n  </h2>\n\n  <img\n    class=\"headshot\"\n    src=\"./images/headshot.jpg\"\n    alt=\"Photo\"\n    width=\"25%\"\n    height=\"25%\"\n  />\n</header>\n\n<main class=\"container\">\n  <div></div>\n  <div></div>\n  <div></div>\n  <div></div>\n</main>\n\n</div>");
+}
+},{}],"Components/Footer.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
-var _default = "<footer class=\"container\">\n&copy; Mackenzie Bryan 2019\n<a href=\"https://github.com/mackenziebryan\" target=\"_blank\"><i class=\"fab fa-github\"></i></a>\n<a href=\"https://www.linkedin.com/in/mackenzie-bryan-414014184/\" target=\"_blank\"><i class=\"fab fa-linkedin\"></i></a>\n<i class=\"fas fa-peace\"></i>\n</footer>";
-exports.default = _default;
+exports.default = Footer;
+
+function Footer() {
+  return "<footer class=\"container\">\n&copy; Mackenzie Bryan 2019\n<a href=\"https://github.com/mackenziebryan\" target=\"_blank\"><i class=\"fab fa-github\"></i></a>\n<a href=\"https://www.linkedin.com/in/mackenzie-bryan-414014184/\" target=\"_blank\"><i class=\"fab fa-linkedin\"></i></a>\n<i class=\"fas fa-peace\"></i>\n</footer>";
+}
 },{}],"main.js":[function(require,module,exports) {
 "use strict";
 
-var _Navigation = _interopRequireDefault(require("./Navigation"));
+var _Navigation = _interopRequireDefault(require("./Components/Navigation"));
 
-var _Content = _interopRequireDefault(require("./Content"));
+var _Content = _interopRequireDefault(require("./Components/Content"));
 
-var _Footer = _interopRequireDefault(require("./Footer"));
+var _Footer = _interopRequireDefault(require("./Components/Footer"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var initialHTML = document.body.innerHTML;
-document.querySelector('#root').innerHTML = "\n".concat(_Navigation.default, "\n").concat(_Content.default, "\n").concat(_Footer.default, "\n");
-},{"./Navigation":"Navigation.js","./Content":"Content.js","./Footer":"Footer.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var state = {};
+state.title = 'Succotash';
+document.querySelector('#root').innerHTML = "\n".concat((0, _Navigation.default)(state), "\n").concat((0, _Content.default)(state), "\n").concat((0, _Footer.default)(state), "\n");
+},{"./Components/Navigation":"Components/Navigation.js","./Components/Content":"Components/Content.js","./Components/Footer":"Components/Footer.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -185,7 +192,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52845" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54588" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -360,5 +367,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","main.js"], null)
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","main.js"], null)
 //# sourceMappingURL=/main.1f19ae8e.js.map

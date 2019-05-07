@@ -1,12 +1,14 @@
-import Navigation from './Navigation';
-import Content from './Content';
-import Footer from './Footer';
+import Navigation from './Components/Navigation';
+import Content from './Components/Content';
+import Footer from './Components/Footer';
 
-let initialHTML = document.body.innerHTML;
+const state = {};
+
+state.title = 'Succotash';
 
 document.querySelector('#root').innerHTML = `
-${Navigation}
-${Content}
-${Footer}
+${Navigation(state)}
+${Content(state)}
+${Footer(state)}
 `;
 

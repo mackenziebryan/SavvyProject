@@ -1,7 +1,7 @@
 {
   "name": "MackenzieBryan",
   "version": "1.0.0",
-  "description": "-HTML\r -CSS\r -JavaScript",
+  "description": "Welcome to my portfolio. Have a look around.",
   "main": "main.js",
   "scripts": {
     "build": "parcel build index.html && cp _redirects ./dist/",
@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/mackenziebryan/SavvyProject/issues"
   },
-  "homepage": "https://github.com/mackenziebryan/SavvyProject#readme"
+  "homepage": "https://github.com/mackenziebryan/SavvyProject#readme",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "parcel-bundler": "^1.12.3"
+  }
 }

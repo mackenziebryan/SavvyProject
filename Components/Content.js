@@ -1,6 +1,7 @@
-export default `<div class="content">
+export default function(state){
+ return `<div class="content">
 <header class="container">
-  <h1>Mackenzie Bryan's Portfolio</h1>
+  <h1>Mackenzie Bryan's Portfolio ${state.title}</h1>
   <h2>Developer Showcase</h2>
 
   <h2>
@@ -27,3 +28,4 @@ export default `<div class="content">
 </main>
 
 </div>`;
+}
