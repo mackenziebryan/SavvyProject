@@ -1,5 +1,4 @@
-export default function(state){
- return `<div class="content">
+export default (state) => `<div class="content">
 <header class="container">
   <h1>Mackenzie Bryan's Portfolio ${state.title}</h1>
   <h2>Developer Showcase</h2>
@@ -13,7 +12,7 @@ export default function(state){
 
   <img
     class="headshot"
-    src="./images/headshot.jpg"
+    src="${state.image}"
     alt="Photo"
     width="25%"
     height="25%"
@@ -28,4 +27,3 @@ export default function(state){
 </main>
 
 </div>`;
-}

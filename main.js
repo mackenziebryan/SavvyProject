@@ -2,7 +2,11 @@ import Navigation from './Components/Navigation';
 import Content from './Components/Content';
 import Footer from './Components/Footer';
 
-const state = {};
+import img from './DSC_7723.jpg';
+
+const state = {
+    'image': img
+};
 
 state.title = 'Succotash';
 

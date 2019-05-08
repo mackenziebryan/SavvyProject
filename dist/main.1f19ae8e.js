@@ -123,33 +123,41 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = Navigation;
+exports.default = void 0;
 
-function Navigation() {
-  return "<nav class=\"container\">\n<ul> <a href=\"index.html\"\n   ><i class=\"fas fa-bicycle\">\n     Home\n   </i>\n </a></ul>\n <ul><a href=\" \"><i class=\"fas fa-seedling\">Contact Me</i></a></ul>\n <li\n   ><i class=\"fas fa-leaf\">\n     Portfolio\n     <ul id=\"dropdown\">\n       <li>Web-Store</li>\n       <li></li>\n       <li>Capstone</li>\n     </ul>\n   </i>\n </li>\n</nav>;";
-}
+var _default = function _default() {
+  return "<nav class=\"container\">\n<ul> <a href=\"index.html\"\n   ><i class=\"fas fa-bicycle\">\n     Home\n   </i>\n </a></ul>\n <ul><a href=\" \"><i class=\"fas fa-seedling\">Contact Me</i></a></ul>\n <li\n   ><i class=\"fas fa-leaf\">\n     Portfolio\n     <ul id=\"dropdown\">\n       <li>Web-Store</li>\n       <li></li>\n       <li>Capstone</li>\n     </ul>\n   </i>\n </li>\n</nav>";
+};
+
+exports.default = _default;
 },{}],"Components/Content.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = _default;
+exports.default = void 0;
 
-function _default(state) {
-  return "<div class=\"content\">\n<header class=\"container\">\n  <h1>Mackenzie Bryan's Portfolio ".concat(state.title, "</h1>\n  <h2>Developer Showcase</h2>\n\n  <h2>\n    Languages\n    <li>HTML</li>\n    <li>CSS</li>\n    <li>JavaScript</li>\n  </h2>\n\n  <img\n    class=\"headshot\"\n    src=\"./images/headshot.jpg\"\n    alt=\"Photo\"\n    width=\"25%\"\n    height=\"25%\"\n  />\n</header>\n\n<main class=\"container\">\n  <div></div>\n  <div></div>\n  <div></div>\n  <div></div>\n</main>\n\n</div>");
-}
+var _default = function _default(state) {
+  return "<div class=\"content\">\n<header class=\"container\">\n  <h1>Mackenzie Bryan's Portfolio ".concat(state.title, "</h1>\n  <h2>Developer Showcase</h2>\n\n  <h2>\n    Languages\n    <li>HTML</li>\n    <li>CSS</li>\n    <li>JavaScript</li>\n  </h2>\n\n  <img\n    class=\"headshot\"\n    src=\"").concat(state.image, "\"\n    alt=\"Photo\"\n    width=\"25%\"\n    height=\"25%\"\n  />\n</header>\n\n<main class=\"container\">\n  <div></div>\n  <div></div>\n  <div></div>\n  <div></div>\n</main>\n\n</div>");
+};
+
+exports.default = _default;
 },{}],"Components/Footer.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = Footer;
+exports.default = void 0;
 
-function Footer() {
+var _default = function _default() {
   return "<footer class=\"container\">\n&copy; Mackenzie Bryan 2019\n<a href=\"https://github.com/mackenziebryan\" target=\"_blank\"><i class=\"fab fa-github\"></i></a>\n<a href=\"https://www.linkedin.com/in/mackenzie-bryan-414014184/\" target=\"_blank\"><i class=\"fab fa-linkedin\"></i></a>\n<i class=\"fas fa-peace\"></i>\n</footer>";
-}
+};
+
+exports.default = _default;
+},{}],"DSC_7723.jpg":[function(require,module,exports) {
+module.exports = "/DSC_7723.5abd570f.jpg";
 },{}],"main.js":[function(require,module,exports) {
 "use strict";
 
@@ -159,12 +167,16 @@ var _Content = _interopRequireDefault(require("./Components/Content"));
 
 var _Footer = _interopRequireDefault(require("./Components/Footer"));
 
+var _DSC_ = _interopRequireDefault(require("./DSC_7723.jpg"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var state = {};
+var state = {
+  'image': _DSC_.default
+};
 state.title = 'Succotash';
 document.querySelector('#root').innerHTML = "\n".concat((0, _Navigation.default)(state), "\n").concat((0, _Content.default)(state), "\n").concat((0, _Footer.default)(state), "\n");
-},{"./Components/Navigation":"Components/Navigation.js","./Components/Content":"Components/Content.js","./Components/Footer":"Components/Footer.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./Components/Navigation":"Components/Navigation.js","./Components/Content":"Components/Content.js","./Components/Footer":"Components/Footer.js","./DSC_7723.jpg":"DSC_7723.jpg"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -192,7 +204,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54588" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63787" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -1,5 +1,4 @@
-export default function Navigation(){
-  return `<nav class="container">
+export default () => `<nav class="container">
 <ul> <a href="index.html"
    ><i class="fas fa-bicycle">
      Home
@@ -16,5 +15,4 @@ export default function Navigation(){
      </ul>
    </i>
  </li>
-</nav>;`
-}
+</nav>`;
