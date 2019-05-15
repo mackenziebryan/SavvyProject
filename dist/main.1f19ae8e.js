@@ -125,8 +125,16 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _default = function _default() {
-  return "<nav class=\"container\">\n<ul> <a href=\"index.html\"\n   ><i class=\"fas fa-bicycle\">\n     Home\n   </i>\n </a></ul>\n <ul><a href=\" \"><i class=\"fas fa-seedling\">Contact Me</i></a></ul>\n <li\n   ><i class=\"fas fa-leaf\">\n     Portfolio\n     <ul id=\"dropdown\">\n       <li>Web-Store</li>\n       <li></li>\n       <li>Capstone</li>\n     </ul>\n   </i>\n </li>\n</nav>";
+function buildNavHTML(stateLinks) {
+  var linksHTML = '';
+  stateLinks.forEach(function (link) {
+    linksHTML += "<li><a href=\"\">".concat(link, "</li>");
+  });
+  return linksHTML;
+}
+
+var _default = function _default(state) {
+  return "<nav class=\"container\">\n".concat(buildNavHTML(state.links.primary), "\n<li><i class=\"fas fa-leaf\">Portfolio</i>\n  <ul id=\"dropdown\">\n  ").concat(buildNavHTML(state.links.dropdown), "\n  </ul>\n</li>\n</nav>");
 };
 
 exports.default = _default;
@@ -158,6 +166,8 @@ var _default = function _default() {
 exports.default = _default;
 },{}],"DSC_7723.jpg":[function(require,module,exports) {
 module.exports = "/DSC_7723.5abd570f.jpg";
+},{}],"node_modules/parcel-bundler/src/builtins/_empty.js":[function(require,module,exports) {
+
 },{}],"main.js":[function(require,module,exports) {
 "use strict";
 
@@ -169,14 +179,51 @@ var _Footer = _interopRequireDefault(require("./Components/Footer"));
 
 var _DSC_ = _interopRequireDefault(require("./DSC_7723.jpg"));
 
+var _fs = require("fs");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var state = {
-  'image': _DSC_.default
+var states = {
+  'home': {
+    'title': 'Succotash',
+    'image': _DSC_.default,
+    'links': {
+      'primary': ['Home', 'About', 'Contact'],
+      'dropdown': ['Class Project', 'Hack-a-Thon', 'Demo']
+    }
+  },
+  'contact': {
+    'title': 'Contact me!',
+    'image': _DSC_.default,
+    'links': {
+      'primary': ['Home', 'About', 'Contact'],
+      'dropdown': ['Class Project', 'Hack-a-Thon', 'Demo']
+    }
+  },
+  'about': {
+    'title': 'About me',
+    'image': _DSC_.default,
+    'links': {
+      'primary': ['Home', 'About', 'Contact'],
+      'dropdown': ['Class Project', 'Hack-a-Thon', 'Demo']
+    }
+  }
 };
-state.title = 'Succotash';
-document.querySelector('#root').innerHTML = "\n".concat((0, _Navigation.default)(state), "\n").concat((0, _Content.default)(state), "\n").concat((0, _Footer.default)(state), "\n");
-},{"./Components/Navigation":"Components/Navigation.js","./Components/Content":"Components/Content.js","./Components/Footer":"Components/Footer.js","./DSC_7723.jpg":"DSC_7723.jpg"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var root = document.querySelector('#root');
+
+function render(state) {
+  root.innerHTML = "\n".concat((0, _Navigation.default)(state), "\n").concat((0, _Content.default)(state), "\n").concat((0, _Footer.default)(state), "\n");
+}
+
+render(states.home);
+var links = document.querySelectorAll('nav a');
+links.forEach(function (link) {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+    render(states["".concat(e.target.textContent.toLowerCase())]);
+  });
+});
+},{"./Components/Navigation":"Components/Navigation.js","./Components/Content":"Components/Content.js","./Components/Footer":"Components/Footer.js","./DSC_7723.jpg":"DSC_7723.jpg","fs":"node_modules/parcel-bundler/src/builtins/_empty.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -204,7 +251,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63787" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55177" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
