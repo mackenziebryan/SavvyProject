@@ -1,12 +1,14 @@
+
 function buildNavHTML(stateLinks){
-  let linksHTML = '';
+    let linksHTML = '';
 
-  stateLinks.forEach((link) => {
-      linksHTML += `<li><a href="">${link}</li>`;
-  });
+    stateLinks.forEach((link) => {
+        linksHTML += `<li><a href="">${link.text}</a></li>`;
+    });
 
-  return linksHTML;
+    return linksHTML;
 }
+
 
 export default (state) => `<nav>
     <ul class="flex">
