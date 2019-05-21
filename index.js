@@ -6,6 +6,10 @@ import Footer from './components/Footer';
 //
 import Navigo from 'navigo'; 
 
+// Brings in capitalize from lodash
+// Object Destructuring
+import { capitalize } from 'lodash';
+
 // Imports *(all) states from store file.
 import * as states from './store';
 
@@ -37,7 +41,11 @@ function render(state){
     });
 }
 
+function handleRoutes(params){
+    render(states[capitalize(params.path)]);
+}
+
 router
-    .on(':path', (params) => console.log(params))
+    .on(':path', handleRoutes)
     .on('/', () => render(states.Home))
     .resolve();
