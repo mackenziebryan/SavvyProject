@@ -1,9 +1,19 @@
+function buildIconHTML(link){
+
+    // If link.icon exists, it is truthy so the if will take effect.
+    // If link.icon is not there it's undefined or falsey so it will not take effect and return empty string
+    if(link.icon){
+        return `<span class='${link.icon}'></span>`;
+    }
+
+    return '';
+}
 
 function buildNavHTML(stateLinks){
     let linksHTML = '';
 
     stateLinks.forEach((link) => {
-        linksHTML += `<li><a href="">${link.text}</a></li>`;
+        linksHTML += `<li><a href="">${buildIconHTML(link)}${link.text}</a></li>`;
     });
 
     return linksHTML;
