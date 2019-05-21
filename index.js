@@ -3,10 +3,17 @@ import Navigation from './components/Navigation';
 import Content from './components/Content';
 import Footer from './components/Footer';
 
+//
+import Navigo from 'navigo'; 
+
 // Imports *(all) states from store file.
 import * as states from './store';
 
+// Origin is required to help our router handle localhost addresses
+const router = new Navigo(window.location.origin);
+
 // Creates root variable to link to HTML file
+// Use innerHTML property as a SETTER
 const root = document.querySelector('#root');
 
 // render receives an argument as a named parameter: 'state'
@@ -30,5 +37,7 @@ function render(state){
     });
 }
 
-// Renders the home page.
-render(states.Home);
+router
+    .on(':path', (params) => console.log(params))
+    .on('/', () => render(states.Home))
+    .resolve();

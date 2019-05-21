@@ -37,6 +37,8 @@ nav {
     font-size: 18px;
     display: grid;
     grid-template-columns: 1fr auto 1fr;
+    max-width: 1200px;
+    padding: auto;
   }
 
 
