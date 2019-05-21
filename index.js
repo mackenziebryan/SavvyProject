@@ -28,23 +28,28 @@ function render(state){
   ${Footer(state)}
   `;
 
-    // Creates variable for Navigation links.
-    const links = document.querySelectorAll('nav a');
+    // Navigo replaces old code with this sweet function
+    router.updatePageLinks();
 
-    // Function for action for clicking each link. 
-    // Prevent default server action to navigate away from page
-    links.forEach((link) => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            render(states[`${e.target.closest('nav a').textContent}`]);
-        });
-    });
+    // // Creates variable for Navigation links.
+    // const links = document.querySelectorAll('nav a');
+
+    // // Function for action for clicking each link. 
+    // // Prevent default server action to navigate away from page
+    // links.forEach((link) => {
+    //     link.addEventListener('click', (e) => {
+    //         e.preventDefault();
+    //         render(states[`${e.target.closest('nav a').textContent}`]);
+    //     });
+    // });
 }
 
+// This function allows path names to be lowercase to fix bug in url
 function handleRoutes(params){
     render(states[capitalize(params.path)]);
 }
 
+// 
 router
     .on(':path', handleRoutes)
     .on('/', () => render(states.Home))
