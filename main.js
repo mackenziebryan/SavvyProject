@@ -3,7 +3,9 @@ import Content from './Components/Content';
 import Footer from './Components/Footer';
 
 import img from './DSC_7723.jpg';
-import { link } from 'fs';
+import * as states from './store';
+
+const root = document.querySelector('#root');
 
 const states = {
     'home': {
@@ -26,24 +28,22 @@ const states = {
     }
 };
 
-const root = document.querySelector('#root');
 
 function render(state){
     root.innerHTML = `
-${Navigation(state)}
-${Content(state)}
-${Footer(state)}
-`;
+    ${Navigation(state)}
+    ${Content(state)}
+    ${Footer(state)}
+    `;
+
+    const links = document.querySelectorAll('nav a');
+
+    links.forEach((link) => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            render(states[`${e.target.textContent}`]);
+        });
+    });
 }
 
-
-render(states.home);
-
-const links = document.querySelectorAll('nav a');
-
-links.forEach((link) => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        render(states[`${e.target.textContent.toLowerCase()}`]);
-    });
-});
+render(states.Home);
