@@ -10,13 +10,14 @@ function buildIconHTML(link){
 }
 
 function buildNavHTML(stateLinks){
-    let linksHTML = '';
-
-    stateLinks.forEach((link) => {
-        linksHTML += `<li><a href="/${link.text.toLowerCase()}" data-navigo>${buildIconHTML(link)}${link.text}</a></li>`;
-    });
-
-    return linksHTML;
+  return stateLinks
+  .map(
+      (link) =>
+          `<li><a href="/${link.text.toLowerCase()}" data-navigo>${buildIconHTML(
+              link
+          )}${link.text}</a></li>`
+  )
+  .join(' ');
 }
 
 
